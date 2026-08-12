@@ -20,10 +20,7 @@ public class SftpReaderRoute extends RouteBuilder {
         sftp("localhost:2222/upload")
             .username("sftp-user")
             .password("sftp-pass")
-            .delete(true)
-            .streamDownload(true)
-            .advanced()
-                .stepwise(false))
+            .delete(true))
         .routeId(SFTP_READER_ROUTE)
         .log("file name read: ${header.%s}".formatted(Exchange.FILE_NAME))
         .log("file content read (length: ${headers.%s}): ${body}".formatted(Exchange.FILE_LENGTH));
