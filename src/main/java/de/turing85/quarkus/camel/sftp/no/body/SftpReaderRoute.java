@@ -23,7 +23,8 @@ public class SftpReaderRoute extends RouteBuilder {
             .delete(true)
             .streamDownload(true)
             .advanced()
-                .stepwise(false))
+                .stepwise(false)
+                .download(true))
         .routeId(SFTP_READER_ROUTE)
         .log("file name read: ${header.%s}".formatted(Exchange.FILE_NAME))
         .log("file content read (length: ${headers.%s}): ${body}".formatted(Exchange.FILE_LENGTH));
